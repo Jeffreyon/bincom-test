@@ -80,6 +80,7 @@ function PollingUnits() {
 
     return (
         <Container className="mt-5">
+            <h1 className="mb-5">View polling results</h1>
             <Stack direction="horizontal">
                 <Form.Select
                     name="polling_unit"

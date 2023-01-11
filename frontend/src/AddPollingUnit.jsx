@@ -85,7 +85,7 @@ function AddPollingUnit() {
             .then((res) => {
                 if (res.data.success) {
                     alert("Polling Unit Added");
-                    navigate("add-polling-unit");
+                    navigate("/");
                 }
             })
             .catch(console.log);

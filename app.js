@@ -123,23 +123,31 @@ app.get("/api/polling-unit-results/:id", (req, res) => {
 
 // get lga polling units aggregate
 app.get("/api/lga-aggregate/:id", (req, res) => {
+    let aggregateScore = 0;
     let sql = sql_queries.getPollingUnitsByLga(req.params.id);
+
     db.query(sql, (err, results) => {
         if (err) throw err;
 
         // loop through each polling unit and aggregate their results
-        let data = [];
 
-        results.map((pu) => {
+        results.forEach((pu) => {
             sql = sql_queries.getPollingUnitResults(pu.polling_unit_id);
 
-            db.query(sql, (err, result) => {
+            db.query(sql, (err, results) => {
                 if (err) throw err;
-                data.push(result);
+
+                results.forEach((result) => {
+                    aggregateScore += result.party_score;
+                });
             });
         });
-        console.log(data);
-        res.send(results);
+
+        setTimeout(() => {
+            // if it's not done after 3s, timeout
+            console.log(aggregateScore);
+            res.send({ score: aggregateScore });
+        }, 3000);
     });
 });
 
