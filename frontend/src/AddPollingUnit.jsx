@@ -81,7 +81,7 @@ function AddPollingUnit() {
 
         // send to server
         axios
-            .post("http://localhost:5000/api/add-polling-unit", data)
+            .post("https://bincom-test.onrender.com/api/add-polling-unit", data)
             .then((res) => {
                 if (res.data.success) {
                     alert("Polling Unit Added");

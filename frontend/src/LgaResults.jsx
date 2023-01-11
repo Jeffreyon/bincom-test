@@ -24,7 +24,9 @@ function LgaResults() {
     useEffect(() => {
         if (selectedLga) {
             axios
-                .get(`http://localhost:5000/api/lga-aggregate/${selectedLga}`)
+                .get(
+                    `https://bincom-test.onrender.com/api/lga-aggregate/${selectedLga}`
+                )
                 .then((res) => {
                     if (res.data) return res.data;
                 })

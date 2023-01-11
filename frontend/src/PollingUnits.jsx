@@ -13,7 +13,7 @@ function PollingUnits() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/api/polling-units")
+            .get("https://bincom-test.onrender.com/api/polling-units")
             .then((res) => {
                 if (res.data) return res.data;
             })
