@@ -25,7 +25,7 @@ function PollingUnits() {
         if (selectedPollingUnit) {
             axios
                 .get(
-                    `http://localhost:5000/api/polling-unit-results/${selectedPollingUnit}`
+                    `https://bincom-test.onrender.com/api/polling-unit-results/${selectedPollingUnit}`
                 )
                 .then((res) => {
                     console.log(res.data);
