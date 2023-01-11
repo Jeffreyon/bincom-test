@@ -47,7 +47,7 @@ function AddPollingUnit() {
     useEffect(() => {
         // get party list
         axios
-            .get("http://localhost:5000/api/parties")
+            .get("https://bincom-test.onrender.com/api/parties")
             .then((res) => {
                 if (res.data) return res.data;
             })

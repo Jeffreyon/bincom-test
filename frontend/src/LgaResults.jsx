@@ -13,7 +13,7 @@ function LgaResults() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/api/lgas")
+            .get("https://bincom-test.onrender.com/api/lgas")
             .then((res) => {
                 if (res.data) return res.data;
             })

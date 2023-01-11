@@ -22,5 +22,6 @@
         "@vitejs/plugin-react": "^3.0.0",
         "sass": "^1.57.1",
         "vite": "^4.0.0"
-    }
+    },
+    "proxy": "https://bincom-test.onrender.com/"
 }
