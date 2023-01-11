@@ -3,12 +3,14 @@ const mysql = require("mysql");
 const cors = require("cors");
 const app = express();
 
+require("dotenv").config();
+
 // connect db
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "123456",
-    database: "bincomtest",
+    host: process.env.DB_HOST,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
 });
 
 db.connect((err) => {
@@ -183,6 +185,8 @@ app.post("/api/add-polling-unit", (req, res) => {
     setTimeout(() => res.send({ success: true }), 3000);
 });
 
-app.listen(5000, () => {
-    console.log("Server live at port 5000");
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => {
+    console.log(`Server live at port ${port}`);
 });
